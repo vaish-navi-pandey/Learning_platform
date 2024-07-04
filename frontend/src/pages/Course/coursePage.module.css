@@ -1,0 +1,141 @@
+/* coursePage.module.css */
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.details {
+  padding: 1rem 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.rating {
+  margin-top: 0.5rem;
+}
+
+.favorite {
+  font-size: 2.5rem;
+  color: #e72929;
+}
+
+.notFavorite {
+  color: grey;
+}
+
+.instructor {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.tags {
+  margin: 1rem 0;
+}
+
+.duration {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 1.5rem;
+}
+
+.description h2 {
+  margin-bottom: 1rem;
+}
+
+.description p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.modules {
+  margin-bottom: 2rem;
+  background: #f9f9f9; /* Light background for module list */
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.modules h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.modules ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;
+}
+
+.modules ul li {
+  margin-bottom: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: white; /* White background for each module */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.modules ul li:hover {
+  background: #e7f3ff; /* Light blue on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.module-icon {
+  margin-right: 0.8rem; /* Space between icon and text */
+  font-size: 1.2rem;
+  color: #4a90e2; /* Blue color for icons */
+}
+
+.price {
+  font-size: 1.5rem;
+  color: green;
+  margin-bottom: 1rem;
+}
+
+.price::before {
+  content: 'Price: ';
+  color: darkgrey;
+}
+
+.enrollButton {
+  display: block;
+  width: 100%;
+  background-color: green;
+  color: white;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.enrollButton:hover {
+  opacity: 0.9;
+}

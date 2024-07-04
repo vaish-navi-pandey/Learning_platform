@@ -1,0 +1,104 @@
+/* General Header Styling */
+.header {
+    background-color: #f7f7f7; /* Light background for a professional look */
+    padding: 0;
+    border-bottom: 2px solid #4caf50; /* Green border to reflect educational themes */
+  }
+  
+  
+  .header a {
+    color: #4caf50; /* Primary color for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Slightly bolder text for better readability */
+  }
+  
+  .header a:hover {
+    background-color: #4caf50; /* Hover effect with primary color */
+    color: white; /* Contrast text color on hover */
+    cursor: pointer;
+  }
+  
+  /* Container to Centralize Content */
+  .container {
+    max-width: 1500px; /* Max width to prevent over-expansion */
+    margin: 0 auto; /* Center content horizontally */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    padding: 0 1rem; /* Add padding for better spacing */
+  }
+  
+  /* Logo Styling */
+  .logo {
+    font-size: 1.5rem; /* Larger font size for logo */
+    font-weight: bold;
+    padding: 1rem;
+  }
+  
+  /* Navigation List Styling */
+  .header ul {
+    display: flex;
+    list-style-type: none; /* Remove default list styling */
+    margin: 0;
+    padding: 0; /* Remove default padding */
+  }
+  
+  .header ul a {
+    padding: 1rem;
+    display: inline-block;
+    font-size: 1rem; /* Ensure readable text size */
+  }
+  
+  
+  .menu_container {
+    position: relative;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 100%; /* Position below the parent element */
+    right: 0; /* Align to the right */
+    background-color: #fff; /* White background for clarity */
+    border: 1px solid #ddd; /* Light border for differentiation */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: none;
+    min-width: 8rem; /* Minimum width for dropdown */
+    z-index: 1001;
+  }
+  .menu_container:hover .menu {
+    display: block; 
+  }
+  
+  .menu a {
+    padding: 0rem 0rem; /* Add padding for better click area */
+    color: #333; /* Darker color for menu items */
+    text-align: left; /* Align text to the left */
+    width:100%;
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+
+  
+  /* Cart Count Styling */
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the start */
+    }
+  
+    .header ul {
+      flex-direction: column; /* Stack links vertically */
+    }
+  
+    .header ul a {
+      padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+    }
+  
+    .menu {
+      left: 0; /* Align dropdown to the left for better usability */
+      right: auto; /* Reset right positioning */
+    }
+  }
+  

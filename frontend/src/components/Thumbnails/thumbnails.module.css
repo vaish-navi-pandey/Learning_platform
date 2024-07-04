@@ -1,0 +1,108 @@
+/* Main list container for course thumbnails */
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Individual course link container */
+  .list li a {
+    height: 22.5rem; /* Thumbnail height */
+    width: 20rem; /* Thumbnail width */
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color:  #05840a; /* Text color */
+    text-decoration: none; /* Remove underline from links */
+    background-color: #fff; /* Ensure background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add hover effects */
+  }
+  
+  .list li a:hover {
+    transform: translateY(-5px); /* Lift up slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  }
+  
+  /* Image styling for course thumbnails */
+  .image {
+    object-fit: cover; /* Ensure image covers the container */
+    height: 14.5rem; /* Adjust as needed */
+    width: 100%; /* Cover the full width */
+    border-bottom: 1px solid whitesmoke; /* Separate image from content */
+  }
+  
+  /* Content section below the image */
+  .content {
+    margin-top: 0.3rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    height: 7rem; /* Adjust to fit content */
+  }
+  
+  /* Favorite icon styling */
+  .favorite {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .favorite.not {
+    color: grey; /* Grey out if not a favorite */
+  }
+  
+  /* Star rating section */
+  .stars {
+    margin: 0.5rem 0;
+  }
+  
+  /* Footer section for course details */
+  .course_item_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0.5rem; /* Adjust for spacing */
+  }
+  
+  /* Course origin tags */
+  .origins span {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: 0.8rem;
+    color: grey;
+    margin-right: 0.3rem;
+    padding: 0 0.5rem;
+    margin-top: 0.2rem;
+  }
+  
+  .origins {
+    flex: 9;
+  }
+  
+  /* Duration section for courses */
+  .duration {
+    font-size: 0.9rem;
+    flex: 3;
+    text-align: right;
+  }
+  
+  /* Price display at the bottom */
+  .price {
+    position: absolute;
+    bottom: 0;
+    left: 0.9rem;
+    background-color: white;
+    padding: 0.3rem 1rem 0 0; /* Adjust for padding */
+    color: #414141;
+    margin-top: 0.7rem;
+    font-size: 1.1rem;
+  }
+  

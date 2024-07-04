@@ -1,0 +1,107 @@
+/* Container styles */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  /* Slightly lighter background for better contrast */
+  min-height: 100vh;
+  /* Ensures the container takes full height */
+}
+
+/* Menu styles */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Responsive grid */
+  gap: 1.5rem;
+  /* Increased gap for better spacing */
+  width: 100%;
+  max-width: 1200px;
+  /* Limit maximum width for large screens */
+}
+
+/* Menu item styles */
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  /* Slightly more rounded corners */
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Softer and larger shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  background-color: white;
+  /* Consistent white background */
+  cursor: pointer;
+  /* Pointer cursor for interactivity */
+}
+
+/* Hover effect for menu items */
+.menuItem:hover {
+  transform: translateY(-8px);
+  /* More pronounced lift effect */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  /* Deeper shadow on hover */
+  background-color: #f1f1f1;
+  /* Slightly darker background on hover */
+}
+
+/* Active and focus states */
+.menuItem:focus,
+.menuItem:active {
+  outline: none;
+  border: 2px solid #007bff;
+  /* Blue border on focus for accessibility */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  /* Glow effect for focus */
+}
+
+/* Icon styles */
+.icon {
+  width: 60px;
+  /* Slightly larger icons */
+  height: 60px;
+  margin-bottom: 1rem;
+  /* Increased spacing for better layout */
+}
+
+/* Title styles within menu items */
+.menuItem h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  /* Slightly larger font size */
+  font-weight: 600;
+  /* Bolder text */
+  color: inherit;
+  /* Ensure text color inherits from parent */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+    /* Reduce padding on smaller screens */
+  }
+
+  .menuItem {
+    padding: 0.5rem;
+    /* Reduce padding inside menu items */
+  }
+
+  .icon {
+    width: 50px;
+    /* Smaller icons on small screens */
+    height: 50px;
+  }
+
+  .menuItem h2 {
+    font-size: 1rem;
+    /* Smaller text size on small screens */
+  }
+}

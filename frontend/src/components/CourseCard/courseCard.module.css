@@ -1,0 +1,34 @@
+/* src/components/CourseCard/courseCard.module.css */
+
+.courseCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .courseCard img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .courseCard h2 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+  }
+  
+  .courseCard p {
+    color: #666;
+  }
+  
+  .courseCard a {
+    color: #009e84;
+    text-decoration: none;
+  }
+  
+  .courseCard a:hover {
+    text-decoration: underline;
+  }
+  

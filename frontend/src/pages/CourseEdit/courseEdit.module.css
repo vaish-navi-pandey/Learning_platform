@@ -1,0 +1,60 @@
+/* Container styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: #f4f6f8;
+    /* Light gray background */
+    min-height: 100vh;
+}
+
+/* Content area styling */
+.content {
+    width: 100%;
+    max-width: 800px;
+    background: #ffffff;
+    /* White background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input container styling */
+.input_container {
+    margin-bottom: 1rem;
+}
+
+/* Image link and thumbnail styling */
+.image_link {
+    display: block;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.image_link img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    /* Subtle border */
+}
+
+/* Button styling */
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    /* Blue background */
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #0056b3;
+    /* Darker blue on hover */
+}
