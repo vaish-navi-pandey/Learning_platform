@@ -1,5 +1,3 @@
-// src/routers/enrollment.router.js
-
 import { Router } from 'express';
 import handler from 'express-async-handler';
 import auth from '../middleware/auth.mid.js';
@@ -17,19 +15,18 @@ router.post(
     const { courseId } = req.body;
     const userId = req.user.id;
 
-    // Check if the course exists
+
     const course = await CourseModel.findById(courseId);
     if (!course) {
       return res.status(BAD_REQUEST).send('Course not found');
     }
 
-    // Check if the user is already enrolled
     const existingEnrollment = await EnrolledCourseModel.findOne({ user: userId, course: courseId });
     if (existingEnrollment) {
       return res.status(BAD_REQUEST).send('User already enrolled in this course');
     }
 
-    // Create new enrollment record
+
     const enrolledCourse = new EnrolledCourseModel({ user: userId, course: courseId });
     await enrolledCourse.save();
 
@@ -42,14 +39,39 @@ router.get(
   handler(async (req, res) => {
     try {
       const userId = req.user.id;
-      // Populate the course details along with the enrollments
-      const enrollments = await EnrolledCourseModel.find({ user: userId }).populate('course');
+
+      const enrollments = await EnrolledCourseModel.find({ user: userId }).populate({
+        path: 'course',
+        model: 'course',
+        select: 'title description imageUrl modules',
+      });
+
       const enrolledCourses = enrollments.map(enrollment => enrollment.course);
       res.send(enrolledCourses);
     } catch (error) {
       console.error('Failed to fetch enrolled courses:', error);
       res.status(500).send('Failed to fetch enrolled courses');
     }
+  })
+);
+
+
+router.patch(
+  '/:courseId/pdf-progress',
+  handler(async (req, res) => {
+    const { courseId } = req.params;
+    const { pdfUrl, completed } = req.body;
+    const userId = req.user.id;
+
+    const enrolledCourse = await EnrolledCourseModel.findOne({ user: userId, course: courseId });
+    if (!enrolledCourse) {
+      return res.status(404).send('Enrollment not found');
+    }
+
+    enrolledCourse.progress.set(pdfUrl, completed);
+    await enrolledCourse.save();
+
+    res.send(enrolledCourse);
   })
 );
 

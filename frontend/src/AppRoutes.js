@@ -11,6 +11,7 @@ import DashboardPage from './pages/Dashboard/DashboardPage';
 import MyCoursesPage from './pages/MyCourses/MyCoursesPage';
 import CoursesAdminPage from './pages/CoursesAdmin/CoursesAdminPage';
 import CourseEditPage from './pages/CourseEdit/CourseEditPage';
+import UserCoursePage from './pages/UserCoursePage/UserCoursePage';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -20,6 +21,7 @@ export default function AppRoutes() {
       <Route path="/course/:id" element={<CoursePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/user-course/:id" element={<UserCoursePage />} />
 
       <Route
         path="/profile"

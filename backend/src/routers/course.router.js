@@ -7,9 +7,6 @@ import auth from '../middleware/auth.mid.js';
 
 const router = Router();
 
-
-
-// Get all courses
 router.get(
   '/',
   handler(async (req, res) => {
@@ -19,7 +16,7 @@ router.get(
 );
 
 
-// Inside course.router.js
+
 router.post(
   '/',
   admin,
@@ -38,7 +35,7 @@ router.post(
         modules
       } = req.body;
 
-      // Log the received data for debugging
+
       console.log('Received data:', req.body);
 
       const course = new CourseModel({
@@ -56,10 +53,10 @@ router.post(
 
       await course.save();
 
-      // Send a proper JSON response
+
       res.status(201).send({ message: 'Course added successfully', course });
     } catch (error) {
-      // Log the error for debugging
+
       console.error('Error while adding course:', error);
       res.status(500).send({ error: 'Failed to add course' });
     }
@@ -68,7 +65,6 @@ router.post(
 
 
 
-// Update an existing course
 router.put(
   '/',
   auth,
@@ -94,7 +90,6 @@ router.put(
   })
 );
 
-// Delete a course by ID
 router.delete(
   '/:courseId',
   admin,
@@ -105,7 +100,7 @@ router.delete(
   })
 );
 
-// Get a list of unique tags with their count
+
 router.get(
   '/tags',
   handler(async (req, res) => {
@@ -139,7 +134,7 @@ router.get(
   })
 );
 
-// Search for courses by title
+
 router.get(
   '/search/:searchTerm',
   handler(async (req, res) => {
@@ -151,7 +146,7 @@ router.get(
   })
 );
 
-// Get courses by tag
+
 router.get(
   '/tag/:tag',
   handler(async (req, res) => {
@@ -161,7 +156,6 @@ router.get(
   })
 );
 
-// Get a course by ID
 router.get(
   '/:courseId',
   handler(async (req, res) => {
@@ -170,5 +164,24 @@ router.get(
     res.send(course);
   })
 );
+
+router.get(
+  '/:courseId/pdfs',
+  auth,
+  handler(async (req, res) => {
+    const { courseId } = req.params;
+    const course = await CourseModel.findById(courseId);
+
+    if (!course) {
+      return res.status(404).send({ message: 'Course not found' });
+    }
+
+    
+    const pdfs = course.modules.split(',').map(url => url.trim());
+
+    res.send(pdfs);
+  })
+);
+
 
 export default router;

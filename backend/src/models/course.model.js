@@ -1,19 +1,23 @@
 import { model, Schema } from 'mongoose';
 
 // Define the Course schema
+const ModuleSchema = new Schema({
+  title: { type: String, required: true },
+  url: { type: String, required: true },
+});
+
 export const CourseSchema = new Schema(
   {
-    title: { type: String, required: true }, // Title of the course
-    duration: { type: String, required: true }, // Duration of the course
+    title: { type: String, required: true },
+    duration: { type: String, required: true },
     price: { type: Number, required: false },
     favorite: { type: Boolean, default: false },
     origin: { type: [String], required: false },
-    rating: { type: Number, default: 0 }, // Rating of the course
+    rating: { type: Number, default: 0 },
     description: { type: [String], required: true },
-    modules: { type: [String], required: true },
     imageUrl: { type: String, required: true },
     tags: { type: [String] },
-
+    modules: [ModuleSchema],  // Ensure modules are defined as an array of ModuleSchema
   },
   {
     toJSON: {
@@ -22,10 +26,8 @@ export const CourseSchema = new Schema(
     toObject: {
       virtuals: true,
     },
-
-    timestamps: true, // Timestamps for createdAt and updatedAt
+    timestamps: true,
   }
 );
 
-// Create and export the Course model
 export const CourseModel = model('course', CourseSchema);
